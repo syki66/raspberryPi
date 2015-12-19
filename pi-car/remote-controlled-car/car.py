@@ -62,7 +62,7 @@ def key_input(event):
     init()
     print 'Key : ', event.char
     key_press = event.char
-    sleep_time = 0.04
+    sleep_time = 0.03
      
     if key_press.lower() == 'w':
 	forward(sleep_time)
