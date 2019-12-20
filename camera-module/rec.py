@@ -1,22 +1,14 @@
-import picamera
-import time
+from time import sleep
+from picamera import PiCamera
 
-camera = picamera.PiCamera()
-camera.resolution = (1920,1080)
+camera = PiCamera()
 
-camera.capture('abc.jpg')
+camera.resolution = (3280,2464)
 
-
-
-
-camera.start_preview()
-time.sleep(3)
-camera.stop_preview()
-'''
+'''camera.start_preview()'''
 
 
-camera.start_recording('video.h264')
-time.sleep(10)
-camera.stop_recording()
-
-'''
+sleep(1)
+for filename in camera.capture_continuous('timelapse/img{counter:03d}.jpg'):
+    print('Captured %s' % filename)
+    sleep(120) # wait 5 minutes
